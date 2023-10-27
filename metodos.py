@@ -20,3 +20,30 @@ def addcolumna(l):
                 return(m)
             else:
                 print("Debes tipear S o s")
+def insFormula():
+    print("al Insertar la formula a manipular tenga en cuenta:")
+    print("para referenciar una Fila use #(fila) Ej: F1=#1")
+    print("Use : para separ primero la Fila afectada de la operacion a realizar Ej: #1:6#2+2#3")
+    Fmla="#3:2#2-#3" #input("Inserte la formula: ")
+    Typs=[]
+    for d in Fmla:
+        try:
+            d=int(d)
+        except:
+            d=d
+        tipo=type(d)
+        Typs.append(tipo)
+    return(Fmla,Typs)
+    
+
+def idoperaciones(frmla):
+    print(frmla)
+    ln=len(frmla[0])
+    print(ln)
+    for t in range(ln):
+        print("caracter: ",frmla[0][t],"es un: ",frmla[1][t])
+        #para despues haga: buscaremos el : y extraeremos lo que hay entre el # y el : que sera la fila afectada
+        #busca el primer numeral para luego extraer su caracter anterior y posterior y lo mandaremos a otra variable
+        # haremos lo mismo con el segundo numeral
+        #al hacer lo anterior en frmla[0] deberia quedar solo el operador +,- ese lo añadiremos a otra vaiable y devolveremos todo eso
+        #maso asi: si la formula insertada es:#1:6#2+2#3 las variables serian: FA=1/op1=[6,2] op2=[2,3]/oprndo=+
